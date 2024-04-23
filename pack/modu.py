@@ -113,7 +113,7 @@ def query_book():
     cursor.execute("SELECT title, author, publisher, year FROM books WHERE title LIKE ? OR author LIKE ?", ('%'+keyword+'%', '%'+keyword+'%'))
     results = cursor.fetchall()
     for result in results:
-        print('|  title  |   author   |  publisher  |publisher|')
+        print('|  書名      |    作者         |     出版社          |    年分    |')
         print(f'|{result[0]:<10}|{result[1]:<12}|{result[2]:<15}|{result[3]:<10}|')
     conn.close()
 
@@ -122,7 +122,7 @@ def list_books():
     cursor = conn.cursor()
     cursor.execute('SELECT title, author, publisher, year FROM books')
     results = cursor.fetchall()
-    print('|    title   |     author      |     publisher        |   year    |')
+    print('|  書名      |    作者         |     出版社          |    年分    |')
     for result in results:
         print(f'|{result[0]:<10}|{result[1]:<12}|{result[2]:<15}|{result[3]:<10}|')
     conn.close()
